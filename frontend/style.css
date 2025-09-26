@@ -4,7 +4,7 @@ body {
     font-family: 'Montserrat', sans-serif; /* Changed font to Montserrat */
     color: #fff;
     background-color: #000;
-    background-image: url('../static/images/hero_background.jpg');
+    background-image: url('img/hero_background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -24,7 +24,7 @@ body.light-theme {
 
 /* Header and Navigation */
 header {
-    padding: 60px 50px;
+    padding: 20px 50px;
     position: fixed;
     width: calc(100% - 100px);
     top: 0;
@@ -48,7 +48,10 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border-radius: 20px; /* Rounded corners for the nav bar */
+    padding: 10px 20px; /* Padding inside the nav bar */
     transition: background-color 0.5s ease;
 }
 
@@ -275,6 +278,25 @@ body.light-theme #cursor-follower.text-hover {
     display: block; /* Ensure it takes its own line */
     margin-left: auto; /* Center the image */
     margin-right: auto; /* Center the image */
+    cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
 /* Footer Styles */
@@ -376,12 +398,37 @@ body.light-theme .home-section {
     /* transform: rotate(180deg); Removed rotation */
 }
 
+.home-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.home-button {
+    color: inherit;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    transition: opacity 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 5px 10px;
+    animation: subtleFade 3s ease-in-out infinite alternate;
+}
+
+.home-button:hover {
+    opacity: 0.7;
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
 body.home-page nav {
     background-color: transparent;
 }
 
 body.light-theme nav {
-    background-color: #f0f0f0; /* Light background for nav in light theme */
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for nav in light theme */
 }
 
 body.light-theme .page {
@@ -588,4 +635,47 @@ body.light-theme .service-item h3 {
     top: 0;
     left: 0;
     z-index: -1;
+}
+
+.log-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.log-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.log-table th, .log-table td {
+    border: 1px solid #444;
+    padding: 15px;
+    text-align: left;
+}
+
+.log-table th {
+    background-color: #333;
+    font-weight: bold;
+}
+
+.log-table tbody tr:hover {
+    background-color: #333;
+}
+
+.log-table th, .log-table td {
+    border: 1px solid #444;
+    padding: 15px;
+    text-align: left;
+}
+
+.log-table th {
+    background-color: #333;
+    font-weight: bold;
 }
